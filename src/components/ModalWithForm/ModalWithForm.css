@@ -1,0 +1,170 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal__container {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 36px;
+  width: 100%;
+  max-width: 430px;
+  position: relative;
+  box-shadow: 0 16px 40px rgba(26, 27, 34, 0.2);
+}
+
+.modal__close-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__close-icon {
+  width: 16px;
+  height: 16px;
+  stroke: #1a1b22;
+  stroke-width: 2;
+  fill: none;
+}
+
+.modal__title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 28px;
+  color: #1a1b22;
+  margin: 0 0 28px 0;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #d1d2d6;
+  padding: 16px 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1a1b22;
+  background: none;
+  margin-bottom: 28px;
+  box-sizing: border-box;
+}
+
+.modal__input::placeholder {
+  color: #b6bcbf;
+}
+
+.modal__input:focus {
+  outline: none;
+  border-bottom-color: #347eff;
+}
+
+.modal__input_type_error {
+  border-bottom-color: #ff4757;
+}
+
+.modal__error {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  color: #ff4757;
+  margin: -20px 0 20px 0;
+  min-height: 16px;
+}
+
+.modal__submit-button {
+  background-color: #1a1b22;
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  padding: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 32px;
+}
+
+.modal__submit-button:hover:not(:disabled) {
+  background-color: rgba(26, 27, 34, 0.8);
+}
+
+.modal__submit-button_disabled {
+  background-color: #b6bcbf;
+  cursor: not-allowed;
+}
+
+.modal__alternative {
+  text-align: center;
+}
+
+.modal__alternative-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1a1b22;
+  margin: 0;
+}
+
+.modal__alternative-link {
+  color: #347eff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal__alternative-link:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 768px) {
+  .modal {
+    padding: 16px;
+  }
+
+  .modal__container {
+    padding: 24px;
+    max-width: none;
+  }
+
+  .modal__title {
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 20px;
+  }
+
+  .modal__input {
+    margin-bottom: 20px;
+    padding: 12px 0;
+  }
+
+  .modal__submit-button {
+    padding: 16px;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 24px;
+  }
+}
