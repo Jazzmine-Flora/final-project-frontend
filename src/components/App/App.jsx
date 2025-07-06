@@ -181,7 +181,7 @@ function App() {
   }
 
   return (
-    <Router>
+    <Router basename={process.env.NODE_ENV === 'production' ? '/final-project-frontend' : '/'}>
       <div className="app">
         <TestInfo />
         <Header
