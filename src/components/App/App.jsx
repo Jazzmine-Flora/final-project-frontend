@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,55 +12,148 @@ import Footer from "../Footer/Footer";
 import SavedNews from "../SavedNews/SavedNews";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import TestInfo from "../TestInfo/TestInfo";
+import newsApi from "../../utils/newsApi";
+import mockAuthApi from "../../utils/mockAuthApi";
+import LocalStorageUtil from "../../utils/localStorage";
 import "./App.css";
 
 function App() {
+  // Authentication state
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
+  
+  // Articles state
+  const [articles, setArticles] = useState([]);
   const [savedArticles, setSavedArticles] = useState([]);
+  const [displayedArticlesCount, setDisplayedArticlesCount] = useState(3);
+  
+  // UI state
+  const [isLoading, setIsLoading] = useState(false);
+  const [searchError, setSearchError] = useState("");
+  const [hasSearched, setHasSearched] = useState(false);
+  const [currentKeyword, setCurrentKeyword] = useState("");
+  
+  // Modal state
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
 
-  const handleSignIn = (userData) => {
-    // For Stage 1.1, we'll just simulate successful login
-    console.log("Signing in with:", userData);
-    setIsLoggedIn(true);
-    setCurrentUser({
-      username: userData.email.split("@")[0],
-      email: userData.email,
-    });
-    setIsLoginModalOpen(false);
+  // Check for existing authentication on app load
+  useEffect(() => {
+    const token = LocalStorageUtil.getToken();
+    if (token) {
+      mockAuthApi.verifyToken(token)
+        .then((response) => {
+          setIsLoggedIn(true);
+          setCurrentUser(response.data.user);
+          setSavedArticles(LocalStorageUtil.getSavedArticles());
+        })
+        .catch(() => {
+          // Token is invalid, remove it
+          LocalStorageUtil.removeToken();
+        })
+        .finally(() => {
+          setIsCheckingAuth(false);
+        });
+    } else {
+      setIsCheckingAuth(false);
+    }
+  }, []);
+
+  // Authentication handlers
+  const handleSignIn = async (userData) => {
+    try {
+      const response = await mockAuthApi.login(userData);
+      setIsLoggedIn(true);
+      setCurrentUser(response.data.user);
+      LocalStorageUtil.setToken(response.data.token);
+      setSavedArticles(LocalStorageUtil.getSavedArticles());
+      setIsLoginModalOpen(false);
+    } catch (error) {
+      console.error("Login error:", error);
+      // You can add error handling here (show error message to user)
+      alert(error.message || "Login failed. Please try again.");
+    }
   };
 
-  const handleSignUp = (userData) => {
-    // For Stage 1.1, we'll just simulate successful registration
-    console.log("Signing up with:", userData);
-    setIsLoggedIn(true);
-    setCurrentUser({
-      username: userData.username,
-      email: userData.email,
-    });
-    setIsRegisterModalOpen(false);
+  const handleSignUp = async (userData) => {
+    try {
+      const response = await mockAuthApi.register(userData);
+      setIsLoggedIn(true);
+      setCurrentUser(response.data.user);
+      LocalStorageUtil.setToken(response.data.token);
+      setSavedArticles(LocalStorageUtil.getSavedArticles());
+      setIsRegisterModalOpen(false);
+    } catch (error) {
+      console.error("Registration error:", error);
+      // You can add error handling here (show error message to user)
+      alert(error.message || "Registration failed. Please try again.");
+    }
   };
 
   const handleSignOut = () => {
     setIsLoggedIn(false);
     setCurrentUser(null);
     setSavedArticles([]);
+    LocalStorageUtil.removeToken();
+    // Note: We keep saved articles in localStorage for when user logs back in
   };
 
-  const handleSaveArticle = (article) => {
-    if (!savedArticles.find((saved) => saved.url === article.url)) {
-      setSavedArticles((prev) => [...prev, article]);
+  // Search functionality
+  const handleSearch = (keyword) => {
+    // Validation
+    if (!keyword.trim()) {
+      setSearchError("Please enter a keyword");
+      return;
     }
+
+    // Clear previous state
+    setSearchError("");
+    setIsLoading(true);
+    setHasSearched(true);
+    setCurrentKeyword(keyword);
+    setDisplayedArticlesCount(3);
+
+    // API call
+    newsApi
+      .searchNews(keyword)
+      .then((data) => {
+        if (data.articles && data.articles.length > 0) {
+          setArticles(data.articles);
+          setSearchError("");
+        } else {
+          setArticles([]);
+          setSearchError("Nothing found");
+        }
+      })
+      .catch((error) => {
+        console.error("Search error:", error);
+        setArticles([]);
+        setSearchError("Sorry, something went wrong during the request. Please try again later.");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
+  // Show more articles
+  const handleShowMore = () => {
+    setDisplayedArticlesCount(prev => prev + 3);
+  };
+
+  // Saved articles handlers
+  const handleSaveArticle = (article) => {
+    const updatedSavedArticles = LocalStorageUtil.addSavedArticle(article);
+    setSavedArticles(updatedSavedArticles);
   };
 
   const handleDeleteArticle = (article) => {
-    setSavedArticles((prev) =>
-      prev.filter((saved) => saved.url !== article.url)
-    );
+    const updatedSavedArticles = LocalStorageUtil.removeSavedArticle(article.url);
+    setSavedArticles(updatedSavedArticles);
   };
 
+  // Modal handlers
   const openLoginModal = () => {
     setIsLoginModalOpen(true);
     setIsRegisterModalOpen(false);
@@ -76,11 +169,24 @@ function App() {
     setIsRegisterModalOpen(false);
   };
 
+  // Show loading while checking authentication
+  if (isCheckingAuth) {
+    return (
+      <div className="app">
+        <div className="app__loading">
+          <div>Loading...</div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <Router>
       <div className="app">
+        <TestInfo />
         <Header
           isLoggedIn={isLoggedIn}
+          currentUser={currentUser}
           onSignInClick={openLoginModal}
           onSignUpClick={openRegisterModal}
           onSignOut={handleSignOut}
@@ -96,6 +202,14 @@ function App() {
                   onSaveArticle={handleSaveArticle}
                   onDeleteArticle={handleDeleteArticle}
                   savedArticles={savedArticles}
+                  articles={articles}
+                  displayedArticlesCount={displayedArticlesCount}
+                  onSearch={handleSearch}
+                  onShowMore={handleShowMore}
+                  isLoading={isLoading}
+                  searchError={searchError}
+                  hasSearched={hasSearched}
+                  currentKeyword={currentKeyword}
                 />
                 <About />
               </>

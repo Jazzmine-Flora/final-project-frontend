@@ -3,6 +3,7 @@ import "./Header.css";
 
 function Header({
   isLoggedIn = false,
+  currentUser = null,
   onSignInClick,
   onSignUpClick,
   onSignOut,
@@ -13,6 +14,7 @@ function Header({
         <h1 className="header__logo">NewsExplorer</h1>
         <Navigation
           isLoggedIn={isLoggedIn}
+          currentUser={currentUser}
           onSignInClick={onSignInClick}
           onSignUpClick={onSignUpClick}
           onSignOut={onSignOut}

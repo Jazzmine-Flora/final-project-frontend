@@ -31,8 +31,19 @@ function NewsCard({
     });
   };
 
+  const handleCardClick = (e) => {
+    // Don't trigger if clicking on buttons
+    if (e.target.closest('button')) {
+      return;
+    }
+    // Open article in new tab
+    if (article.url) {
+      window.open(article.url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
-    <article className="news-card">
+    <article className="news-card" onClick={handleCardClick}>
       <div className="news-card__image-container">
         <img
           src={article.urlToImage || "/placeholder-image.jpg"}
