@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="15" fill="#1a73e8"/>
+  <!-- Letter N -->
+  <path d="M9 24V8h3l6 10V8h3v16h-3l-6-10v10H9z" fill="white"/>
+</svg>
