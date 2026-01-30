@@ -180,8 +180,14 @@ function App() {
     );
   }
 
+  // Basename must match where the app is served: /final-project-frontend on GitHub Pages, / on preview or local
+  const basename =
+    typeof window !== "undefined" && window.location.pathname.startsWith("/final-project-frontend")
+      ? "/final-project-frontend"
+      : "/";
+
   return (
-    <Router basename={import.meta.env.PROD ? '/final-project-frontend' : '/'}>
+    <Router basename={basename}>
       <div className="app">
         <TestInfo />
         <Header
