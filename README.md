@@ -48,14 +48,22 @@ Open the URL shown in the terminal (e.g. `http://localhost:5173`).
 
 ## Deploy to GitHub Pages
 
-This repo is set up to deploy to GitHub Pages from the `main` branch:
+1. **Build and push the built app:**
+   ```bash
+   npm run deploy
+   ```
+   This runs `npm run build` then pushes the `dist/` folder to the **gh-pages** branch.
 
-```bash
-npm run build    # optional: test production build locally
-npm run deploy   # builds and deploys to gh-pages branch
-```
+2. **Configure GitHub to serve from that branch (important):**
+   - Open your repo on GitHub: **Settings** > **Pages**
+   - Under **Build and deployment** > **Source**, choose **Deploy from a branch**
+   - **Branch:** select **gh-pages** (not main)
+   - **Folder:** select **/ (root)**
+   - Save
 
-The live site will be at `https://<your-username>.github.io/final-project-frontend/`. Ensure `base` in `vite.config.js` matches your repo path (e.g. `/final-project-frontend/` for this repo).
+   If Pages is set to the **main** branch, you will see a blank screen, because GitHub would be serving the source code instead of the built app. The built app lives on the **gh-pages** branch.
+
+3. Wait a minute, then open: `https://<your-username>.github.io/final-project-frontend/`
 
 ## Scripts
 
