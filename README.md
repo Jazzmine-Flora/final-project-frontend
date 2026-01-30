@@ -1,10 +1,12 @@
 # News Explorer
 
-A modern news search application built with React. This project is a **full-stack portfolio piece** demonstrating responsive UI, authentication flows, API integration, and a consistent design system.
+A modern news search application built with React. This project is a **full-stack portfolio piece** by **Taliba Ali Latif**, demonstrating responsive UI, authentication flows, API integration, and a consistent design system.
 
-## Live demo
+## Live demo (deployed on GitHub Pages)
 
-**[News Explorer](https://jazzmine-flora.github.io/final-project-frontend)** - search news, sign in, and save articles.
+**[Open News Explorer](https://jazzmine-flora.github.io/final-project-frontend)**
+
+The app is deployed at the link above. You can search news, sign in with a demo account (see below), and save articles. No installation required.
 
 ## Features
 
@@ -20,7 +22,7 @@ A modern news search application built with React. This project is a **full-stac
 - **Frontend:** React 19, React Router, Vite
 - **Styling:** CSS with custom properties (design tokens), Flexbox, Grid
 - **Data:** NewsAPI for news; localStorage for auth and saved articles (demo)
-- **Deployment:** GitHub Pages
+- **Deployment:** GitHub Pages (static hosting)
 
 ## Demo accounts
 
@@ -44,11 +46,22 @@ npm run dev
 
 Open the URL shown in the terminal (e.g. `http://localhost:5173`).
 
+## Deploy to GitHub Pages
+
+This repo is set up to deploy to GitHub Pages from the `main` branch:
+
+```bash
+npm run build    # optional: test production build locally
+npm run deploy   # builds and deploys to gh-pages branch
+```
+
+The live site will be at `https://<your-username>.github.io/final-project-frontend/`. Ensure `base` in `vite.config.js` matches your repo path (e.g. `/final-project-frontend/` for this repo).
+
 ## Scripts
 
 - `npm run dev`: Start dev server
 - `npm run build`: Production build
-- `npm run preview`: Preview production build
+- `npm run preview`: Preview production build locally
 - `npm run lint`: Run ESLint
 - `npm run deploy`: Build and deploy to GitHub Pages
 
@@ -70,6 +83,7 @@ This project was built as a portfolio piece to showcase:
 - Responsive, accessible UI with a clear design system
 - Integration with external APIs and local persistence
 - Auth UX (sign in, sign up, protected routes)
+- Deployment to GitHub Pages
 
 ---
 
