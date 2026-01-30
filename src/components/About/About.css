@@ -1,26 +1,27 @@
 .about {
-  background-color: #f5f6f7;
-  padding: 120px 0;
+  background-color: var(--color-bg-light);
+  padding: var(--space-20) 0;
 }
 
 .about__container {
-  max-width: 1200px;
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--container-padding);
 }
 
 .about__content {
   display: flex;
-  gap: 64px;
+  gap: var(--space-15);
   align-items: center;
 }
 
 .about__photo {
-  width: 464px;
-  height: 464px;
+  width: 29rem;   /* 464px */
+  height: 29rem;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
+  box-shadow: var(--shadow-md);
 }
 
 .about__info {
@@ -28,20 +29,21 @@
 }
 
 .about__title {
-  font-family: "Roboto Slab", serif;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 46px;
-  color: #1a1b22;
-  margin: 0 0 40px 0;
+  font-family: var(--font-serif);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-h1);
+  line-height: var(--text-h1-line);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-10) 0;
+  letter-spacing: -0.01em;
 }
 
 .about__description {
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  line-height: 24px;
-  color: #1a1b22;
-  margin: 0 0 24px 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body-lg);
+  line-height: var(--text-body-lg-line);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-6) 0;
 }
 
 .about__description:last-child {
@@ -50,44 +52,42 @@
 
 @media screen and (max-width: 1024px) {
   .about__content {
-    gap: 40px;
+    gap: var(--space-10);
   }
 
   .about__photo {
-    width: 320px;
-    height: 320px;
+    width: 20rem;
+    height: 20rem;
   }
 }
 
 @media screen and (max-width: 768px) {
   .about {
-    padding: 64px 0;
+    padding: var(--space-15) 0;
   }
 
   .about__container {
-    padding: 0 16px;
+    padding: 0 var(--container-padding-mobile);
   }
 
   .about__content {
     flex-direction: column;
     text-align: center;
-    gap: 32px;
+    gap: var(--space-8);
   }
 
   .about__photo {
-    width: 272px;
-    height: 272px;
+    width: 17rem;
+    height: 17rem;
   }
 
   .about__title {
-    font-size: 30px;
-    line-height: 34px;
-    margin-bottom: 24px;
+    margin-bottom: var(--space-6);
   }
 
   .about__description {
-    font-size: 16px;
-    line-height: 20px;
-    margin-bottom: 16px;
+    font-size: var(--text-body);
+    line-height: 1.25;
+    margin-bottom: var(--space-4);
   }
 }

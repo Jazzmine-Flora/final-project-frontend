@@ -1,90 +1,90 @@
 .footer {
-  background-color: var(--color-bg-dark, #1a1b22);
-  color: #fff;
-  padding: 80px 0;
+  background-color: var(--color-bg-dark);
+  color: var(--color-bg-white);
+  padding: var(--space-20) 0;
   margin-top: auto;
 }
 
 .footer__container {
-  max-width: 1200px;
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--container-padding);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .footer__copyright {
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  line-height: 22px;
-  color: #b6bcbf;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.375;
+  color: var(--color-text-muted);
   margin: 0;
 }
 
 .footer__links {
   display: flex;
-  gap: 24px;
+  gap: var(--space-6);
 }
 
 .footer__link {
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  line-height: 24px;
-  color: #fff;
+  font-family: var(--font-sans);
+  font-size: var(--text-body-lg);
+  line-height: 1.33;
+  color: var(--color-bg-white);
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  transition: opacity var(--transition-normal);
 }
 
 .footer__link:hover {
-  opacity: 0.7;
+  opacity: 0.85;
 }
 
 .footer__social {
   display: flex;
-  gap: 16px;
+  gap: var(--space-4);
 }
 
 .footer__social-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  color: #fff;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--color-bg-white);
   border-radius: 50%;
-  transition: opacity var(--transition-normal, 0.3s ease), transform var(--transition-fast, 0.2s ease);
+  transition: opacity var(--transition-normal), transform var(--transition-fast);
 }
 
 .footer__social-link:hover {
-  opacity: 0.8;
-  transform: scale(1.1);
+  opacity: 0.85;
+  transform: scale(1.08);
 }
 
 .footer__social-icon {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   fill: currentColor;
 }
 
 @media screen and (max-width: 768px) {
   .footer {
-    padding: 40px 0;
+    padding: var(--space-10) 0;
   }
 
   .footer__container {
-    padding: 0 16px;
+    padding: 0 var(--container-padding-mobile);
     flex-direction: column;
-    gap: 32px;
+    gap: var(--space-8);
     text-align: center;
   }
 
   .footer__links {
-    gap: 20px;
+    gap: var(--space-5);
   }
 
   .footer__link {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: var(--text-body);
+    line-height: 1.25;
   }
 }

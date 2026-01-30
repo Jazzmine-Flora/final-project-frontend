@@ -1,49 +1,51 @@
 .search {
   background: linear-gradient(
-      to bottom,
-      rgba(26, 27, 34, 0.2) 0%,
-      rgba(26, 27, 34, 0.6) 50%,
-      rgba(26, 27, 34, 0.9) 100%
+      180deg,
+      rgba(26, 27, 34, 0.25) 0%,
+      rgba(26, 27, 34, 0.55) 50%,
+      rgba(26, 27, 34, 0.92) 100%
     ),
     url("../../images/georgia-de-lotz--UsJoNxLaNo-unsplash.png");
   background-size: cover;
   background-position: center;
-  min-height: 576px;
+  min-height: 36rem; /* 576px */
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--color-bg-white);
   position: relative;
 }
 
 .search__container {
-  max-width: 1200px;
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--container-padding);
   text-align: center;
 }
 
 .search__title {
-  font-family: "Roboto Slab", serif;
-  font-weight: 400;
-  font-size: 60px;
-  line-height: 64px;
-  margin: 0 0 32px 0;
-  max-width: 635px;
+  font-family: var(--font-serif);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-display);
+  line-height: var(--text-display-line);
+  margin: 0 0 var(--space-8) 0;
+  max-width: 39.6875rem; /* 635px */
   margin-left: auto;
   margin-right: auto;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
 }
 
 .search__subtitle {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 24px;
-  margin: 0 0 80px 0;
-  max-width: 720px;
+  font-family: var(--font-sans);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-body-lg);
+  line-height: var(--text-body-lg-line);
+  margin: 0 0 var(--space-20) 0;
+  max-width: 45rem;
   margin-left: auto;
   margin-right: auto;
+  opacity: 0.95;
 }
 
 .search__form {
@@ -53,51 +55,51 @@
 
 .search__input-container {
   display: flex;
-  background-color: #fff;
-  border-radius: 100px;
+  background-color: var(--color-bg-white);
+  border-radius: var(--radius-pill);
   overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(255, 255, 255, 0.08);
   width: 100%;
-  max-width: 608px;
-  transition: box-shadow var(--transition-normal, 0.3s ease);
+  max-width: 38rem; /* 608px */
+  transition: box-shadow var(--transition-normal);
 }
 
 .search__input-container:focus-within {
-  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.25), 0 0 0 2px var(--color-accent, #347eff);
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.22), 0 0 0 2px var(--color-accent);
 }
 
 .search__input {
   flex: 1;
   border: none;
-  padding: 20px 24px;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  line-height: 22px;
-  color: #1a1b22;
+  padding: var(--space-5) var(--space-6);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body-line);
+  color: var(--color-text-primary);
   outline: none;
   background: none;
 }
 
 .search__input::placeholder {
-  color: #b6bcbf;
+  color: var(--color-text-muted);
 }
 
 .search__button {
-  background-color: var(--color-accent, #347eff);
+  background-color: var(--color-accent);
   border: none;
-  color: #fff;
-  padding: 20px 28px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 22px;
+  color: var(--color-bg-white);
+  padding: var(--space-5) var(--space-6);
+  font-family: var(--font-sans);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-body);
+  line-height: var(--text-body-line);
   cursor: pointer;
-  transition: background-color var(--transition-normal, 0.3s ease), transform var(--transition-fast, 0.2s ease);
-  min-width: 168px;
+  transition: background-color var(--transition-normal), transform var(--transition-fast);
+  min-width: 10.5rem;
 }
 
 .search__button:hover:not(:disabled) {
-  background-color: var(--color-accent-hover, #2a66cc);
+  background-color: var(--color-accent-hover);
   transform: translateY(-1px);
 }
 
@@ -106,42 +108,40 @@
 }
 
 .search__button:disabled {
-  background-color: var(--color-text-secondary, #b6bcbf);
+  background-color: var(--color-text-muted);
   cursor: not-allowed;
 }
 
 @media screen and (max-width: 768px) {
   .search {
-    min-height: 464px;
+    min-height: 29rem; /* 464px */
   }
 
   .search__container {
-    padding: 0 16px;
+    padding: 0 var(--container-padding-mobile);
   }
 
   .search__title {
-    font-size: 36px;
-    line-height: 40px;
-    margin-bottom: 24px;
+    margin-bottom: var(--space-6);
   }
 
   .search__subtitle {
-    font-size: 16px;
-    line-height: 20px;
-    margin-bottom: 64px;
+    font-size: var(--text-body);
+    line-height: 1.25;
+    margin-bottom: var(--space-15);
   }
 
   .search__input-container {
     flex-direction: column;
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
   }
 
   .search__input {
-    padding: 16px 20px;
+    padding: var(--space-4) var(--space-5);
   }
 
   .search__button {
-    padding: 16px 20px;
-    border-radius: 0 0 16px 16px;
+    padding: var(--space-4) var(--space-5);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
   }
 }

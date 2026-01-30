@@ -57,14 +57,18 @@ function Main({
                       />
                     </svg>
                   </div>
-                  <h3 className="main__error-title">Nothing found</h3>
+                  <h3 className="main__error-title">No results found</h3>
                   <p className="main__error-text">
-                    Sorry, but nothing matched your search terms.
+                    We couldn't find any articles matching your search. Try a
+                    different topic or check your spelling.
                   </p>
                 </>
               ) : searchError === "Please enter a keyword" ? (
                 <>
-                  <h3 className="main__error-title">Please enter a keyword</h3>
+                  <h3 className="main__error-title">Enter a search topic</h3>
+                  <p className="main__error-text">
+                    Type a topic above and click Search to find news articles.
+                  </p>
                 </>
               ) : (
                 <>
@@ -81,7 +85,7 @@ function Main({
         <section className="main__results">
           <div className="main__container">
             <h2 className="main__results-title">
-              Search results for "{currentKeyword}"
+              Search results: &ldquo;{currentKeyword}&rdquo;
             </h2>
             <div className="main__news-grid">
               {displayedArticles.map((article, index) => (
@@ -101,7 +105,7 @@ function Main({
                 onClick={onShowMore}
                 type="button"
               >
-                Show more
+                Show more articles
               </button>
             )}
           </div>

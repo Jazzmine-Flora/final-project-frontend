@@ -73,7 +73,7 @@ function App() {
     } catch (error) {
       console.error("Login error:", error);
       // You can add error handling here (show error message to user)
-      alert(error.message || "Login failed. Please try again.");
+      alert(error.message || "Sign in failed. Please check your email and password and try again.");
     }
   };
 
@@ -88,7 +88,7 @@ function App() {
     } catch (error) {
       console.error("Registration error:", error);
       // You can add error handling here (show error message to user)
-      alert(error.message || "Registration failed. Please try again.");
+      alert(error.message || "Sign up failed. Please try again or use a different email.");
     }
   };
 
@@ -130,7 +130,7 @@ function App() {
       .catch((error) => {
         console.error("Search error:", error);
         setArticles([]);
-        setSearchError("Sorry, something went wrong during the request. Please try again later.");
+        setSearchError("We couldn't complete your search. Please check your connection and try again.");
       })
       .finally(() => {
         setIsLoading(false);

@@ -87,7 +87,7 @@ function NewsCard({
                 </svg>
               </button>
               {!isLoggedIn && (
-                <div className="news-card__tooltip" role="tooltip">Sign in to save articles</div>
+                <div className="news-card__tooltip" role="tooltip">Sign in to save this article</div>
               )}
             </div>
           )}

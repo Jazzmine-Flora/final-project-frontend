@@ -3,27 +3,28 @@ import authorPhoto from "../../images/IMG_8149.JPG";
 
 function About() {
   return (
-    <section className="about">
+    <section className="about" id="about">
       <div className="about__container">
         <div className="about__content">
-          <img src={authorPhoto} alt="Author" className="about__photo" />
+          <img src={authorPhoto} alt="Taliba Ali Latif" className="about__photo" />
           <div className="about__info">
-            <h2 className="about__title">About the author</h2>
+            <h2 className="about__title">About the developer</h2>
             <p className="about__description">
-              This project was created by Taliba Ali Latif, a student of the
-              TripleTen Practicum Software Engineering course. The project is a
-              news search service that allows users to find and save articles on
-              various topics.
+              News Explorer is a portfolio project created by{" "}
+              <strong>Taliba Ali Latif</strong>. It was built as part of the
+              TripleTen Software Engineering program to demonstrate modern
+              full-stack web development, from UI design to data flow and user
+              authentication.
             </p>
             <p className="about__description">
-              I am a passionate frontend developer with a focus on creating
-              user-friendly and efficient web applications. My skills include
-              HTML, CSS, JavaScript, React, and other modern web development
-              technologies. I am also experienced in working with APIs and
-              databases to fetch and display data from various sources. My goal,
-              after graduation, is to continue developing my skills and
-              contribute to innovative projects that make a positive impact on
-              people's lives.
+              This project highlights a contemporary tech stack and practices:
+              React with hooks for the frontend, responsive and accessible UI
+              with CSS custom properties, client-side routing, RESTful API
+              integration for news search, and a structured auth flow with
+              token-based sessions. The codebase is organized for clarity and
+              maintainability, with reusable components and a consistent design
+              system, reflecting the kind of work I deliver as a full-stack
+              developer focused on modern web applications.
             </p>
           </div>
         </div>

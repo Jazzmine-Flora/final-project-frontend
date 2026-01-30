@@ -6,11 +6,14 @@ function Footer() {
     <footer className="footer">
       <div className="footer__container">
         <p className="footer__copyright">
-          © {new Date().getFullYear()} NewsExplorer, Powered by News API
+          © {new Date().getFullYear()} News Explorer · Created by Taliba Ali Latif · Powered by News API
         </p>
         <div className="footer__links">
           <Link to="/" className="footer__link">
             Home
+          </Link>
+          <Link to="/#about" className="footer__link">
+            About
           </Link>
           <a
             href="https://tripleten.com"

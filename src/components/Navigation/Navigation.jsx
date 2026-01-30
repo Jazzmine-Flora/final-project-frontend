@@ -32,7 +32,7 @@ function Navigation({
                   : ""
               }`}
             >
-              Saved articles
+              Saved
             </Link>
           </li>
         )}

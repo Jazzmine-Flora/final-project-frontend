@@ -31,13 +31,13 @@ function LoginModal({ isOpen, onClose, onSubmit, onSwitchToRegister }) {
     if (!formData.email) {
       newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email";
+      newErrors.email = "Please enter a valid email address";
     }
 
     if (!formData.password) {
       newErrors.password = "Password is required";
     } else if (formData.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters";
+      newErrors.password = "Password must be at least 6 characters long";
     }
 
     setErrors(newErrors);
@@ -65,7 +65,7 @@ function LoginModal({ isOpen, onClose, onSubmit, onSwitchToRegister }) {
 
   const alternativeAction = (
     <p className="modal__alternative-text">
-      or{" "}
+      Don&apos;t have an account?{" "}
       <button
         type="button"
         className="modal__alternative-link"
@@ -92,7 +92,7 @@ function LoginModal({ isOpen, onClose, onSubmit, onSwitchToRegister }) {
         }`}
         type="email"
         name="email"
-        placeholder="Enter email"
+        placeholder="Email"
         value={formData.email}
         onChange={handleChange}
         required
@@ -105,7 +105,7 @@ function LoginModal({ isOpen, onClose, onSubmit, onSwitchToRegister }) {
         }`}
         type="password"
         name="password"
-        placeholder="Enter password"
+        placeholder="Password"
         value={formData.password}
         onChange={handleChange}
         required

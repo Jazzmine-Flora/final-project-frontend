@@ -1,31 +1,31 @@
 .news-card {
   display: flex;
   flex-direction: column;
-  background-color: var(--color-bg-white, #fff);
-  border-radius: 16px;
+  background-color: var(--color-bg-white);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-sm, 0 8px 16px rgba(26, 27, 34, 0.06));
-  transition: transform var(--transition-normal, 0.3s ease), box-shadow var(--transition-normal, 0.3s ease);
-  height: 576px;
-  width: 400px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  height: 36rem; /* 576px */
+  width: 25rem;  /* 400px */
   flex-shrink: 0;
   cursor: pointer;
-  border: 1px solid rgba(26, 27, 34, 0.04);
+  border: 1px solid var(--color-border-light);
 }
 
 .news-card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-lg, 0 16px 32px rgba(26, 27, 34, 0.12));
+  box-shadow: var(--shadow-lg);
 }
 
 .news-card:focus-visible {
-  outline: 2px solid var(--color-accent, #347eff);
+  outline: 2px solid var(--color-accent);
   outline-offset: 4px;
 }
 
 .news-card__image-container {
   position: relative;
-  height: 272px;
+  height: 17rem; /* 272px */
   overflow: hidden;
 }
 
@@ -37,59 +37,59 @@
 
 .news-card__buttons {
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: var(--space-6);
+  right: var(--space-6);
 }
 
 .news-card__bookmark-button,
 .news-card__delete-button {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   border: none;
-  border-radius: 8px;
-  background-color: #fff;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-white);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(26, 27, 34, 0.15);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
 }
 
 .news-card__bookmark-button:hover:not(:disabled) {
-  background-color: #f5f6f7;
+  background-color: var(--color-bg-light);
 }
 
 .news-card__bookmark-button_disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .news-card__bookmark-button_active .news-card__bookmark-icon {
-  fill: #347eff;
+  fill: var(--color-accent);
 }
 
 .news-card__delete-button {
-  background-color: #ff4757;
+  background-color: var(--color-error);
 }
 
 .news-card__delete-button:hover {
-  background-color: #ff3838;
+  filter: brightness(0.92);
 }
 
 .news-card__bookmark-icon {
-  width: 16px;
-  height: 16px;
-  fill: #b6bcbf;
+  width: 1rem;
+  height: 1rem;
+  fill: var(--color-text-muted);
   stroke: none;
-  transition: fill 0.3s ease;
+  transition: fill var(--transition-normal);
 }
 
 .news-card__delete-icon {
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   fill: none;
-  stroke: #fff;
+  stroke: var(--color-bg-white);
   stroke-width: 2;
 }
 
@@ -102,19 +102,21 @@
   position: absolute;
   top: 100%;
   right: 0;
-  margin-top: 8px;
-  background-color: var(--color-bg-dark, #1a1b22);
-  color: #fff;
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-size: 12px;
+  margin-top: var(--space-2);
+  background-color: var(--color-bg-dark);
+  color: var(--color-bg-white);
+  padding: var(--space-3) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  line-height: var(--text-caption-line);
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
-  transition: opacity var(--transition-normal, 0.3s ease), visibility var(--transition-normal, 0.3s ease), transform var(--transition-fast, 0.2s ease);
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
   z-index: 10;
   pointer-events: none;
-  box-shadow: var(--shadow-md, 0 8px 24px rgba(26, 27, 34, 0.1));
+  box-shadow: var(--shadow-md);
 }
 
 .news-card__tooltip-wrap:hover .news-card__tooltip {
@@ -123,39 +125,40 @@
 }
 
 .news-card__content {
-  padding: 24px;
+  padding: var(--space-6);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .news-card__date {
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  color: #b6bcbf;
-  margin-bottom: 12px;
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm);
+  line-height: 1.43;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
 }
 
 .news-card__title {
-  font-family: "Roboto Slab", serif;
-  font-weight: 400;
-  font-size: 26px;
-  line-height: 30px;
-  color: #1a1b22;
-  margin: 0 0 16px 0;
+  font-family: var(--font-serif);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-h2);
+  line-height: var(--text-h2-line);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-4) 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  letter-spacing: -0.01em;
 }
 
 .news-card__description {
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  line-height: 22px;
-  color: #1a1b22;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--text-body-line);
+  color: var(--color-text-primary);
   margin: 0 0 auto 0;
   display: -webkit-box;
   -webkit-line-clamp: 5;
@@ -166,37 +169,37 @@
 }
 
 .news-card__source {
-  font-family: "Roboto Slab", serif;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 20px;
-  color: #b6bcbf;
+  font-family: var(--font-serif);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-body);
+  line-height: 1.25;
+  color: var(--color-text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.4px;
-  margin-top: 20px;
+  letter-spacing: 0.04em;
+  margin-top: var(--space-5);
 }
 
 @media screen and (max-width: 860px) {
   .news-card {
     width: 100%;
-    max-width: 400px;
+    max-width: 25rem;
   }
 
   .news-card__image-container {
-    height: 196px;
+    height: 12.25rem; /* 196px */
   }
 
   .news-card__content {
-    padding: 16px;
+    padding: var(--space-4);
   }
 
   .news-card__title {
-    font-size: 22px;
-    line-height: 26px;
+    font-size: 1.375rem; /* 22px */
+    line-height: 1.18;
   }
 
   .news-card__description {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: var(--text-body-sm);
+    line-height: 1.43;
   }
 }

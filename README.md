@@ -1,117 +1,79 @@
 # News Explorer
 
-A modern React-based news application that allows users to search for articles and save their favorites.
+A modern news search application built with React. This project is a **full-stack portfolio piece** demonstrating responsive UI, authentication flows, API integration, and a consistent design system.
 
-## 🚀 Live Demo
+## Live demo
 
-**Deployed Application:** [https://jazzmine-flora.github.io/final-project-frontend](https://jazzmine-flora.github.io/final-project-frontend)
+**[News Explorer](https://jazzmine-flora.github.io/final-project-frontend)** - search news, sign in, and save articles.
 
-## ✨ Features
+## Features
 
-- **Real-time News Search**: Search for articles from NewsAPI
-- **User Authentication**: Register and login with secure authentication
-- **Save Articles**: Bookmark articles for later reading
-- **Responsive Design**: Works on desktop, tablet, and mobile
-- **Progressive Loading**: "Show more" functionality for large result sets
-- **Click to Read**: Click any article card to read the full article
+- **News search**: Search articles by topic via NewsAPI
+- **User auth**: Sign up, sign in, and sign out (mock backend; data stored locally for demo)
+- **Saved articles**: Bookmark articles when signed in; view and remove them on the Saved page
+- **Responsive layout**: Desktop, tablet, and mobile breakpoints
+- **Design system**: Typography (Roboto, Roboto Slab), spacing, and tokens applied across the app
+- **Accessibility**: Focus states, semantic HTML, and ARIA where needed
 
-## 🧪 Test Accounts
+## Tech stack
 
-For reviewers and testing:
+- **Frontend:** React 19, React Router, Vite
+- **Styling:** CSS with custom properties (design tokens), Flexbox, Grid
+- **Data:** NewsAPI for news; localStorage for auth and saved articles (demo)
+- **Deployment:** GitHub Pages
 
-- **Email:** test@example.com **Password:** password123
-- **Email:** demo@example.com **Password:** demo123
+## Demo accounts
 
-Or create your own account - all data is stored locally.
+For reviewers and portfolio visitors:
 
-## 🛠️ Technologies Used
+| Account | Email             | Password   |
+|---------|-------------------|------------|
+| 1       | test@example.com  | password123 |
+| 2       | demo@example.com  | demo123     |
 
-- **Frontend**: React 19, React Router, Vite
-- **Styling**: CSS3, Flexbox, CSS Grid
-- **API**: NewsAPI for real news data
-- **Storage**: Local Storage for authentication and saved articles
-- **Deployment**: GitHub Pages
+You can also sign up with your own email; data is stored locally for this portfolio demo.
 
-## 🏗️ Architecture
+## Run locally
 
-- **Component-based**: Modular React components
-- **State Management**: React hooks (useState, useEffect)
-- **Responsive Design**: Mobile-first approach
-- **Mock Authentication**: Simulated backend for testing
-- **Local Persistence**: User data saved locally
-
-## 📱 Responsive Breakpoints
-
-- **Desktop (1281px+)**: 3 cards per row
-- **Tablet (861px-1280px)**: 2 cards per row  
-- **Mobile (860px and below)**: 1 card per row
-
-## 🚀 Development
-
-### Prerequisites
-- Node.js (v20.19.0 or higher)
-- npm or yarn
-
-### Local Development
 ```bash
-# Clone the repository
-git clone https://github.com/jazzmine-flora/final-project-frontend.git
-
-# Install dependencies
+git clone https://github.com/Jazzmine-Flora/final-project-frontend.git
+cd final-project-frontend
 npm install
-
-# Start development server
 npm run dev
-
-# Open http://localhost:5174
 ```
 
-### Build for Production
-```bash
-npm run build
-```
+Open the URL shown in the terminal (e.g. `http://localhost:5173`).
 
-### Deploy to GitHub Pages
-```bash
-npm run deploy
-```
+## Scripts
 
-## 📁 Project Structure
+- `npm run dev`: Start dev server
+- `npm run build`: Production build
+- `npm run preview`: Preview production build
+- `npm run lint`: Run ESLint
+- `npm run deploy`: Build and deploy to GitHub Pages
+
+## Project structure
 
 ```
 src/
-├── components/           # React components
-│   ├── App/             # Main application component
-│   ├── Header/          # Site header with navigation
-│   ├── Main/            # Main page with search results
-│   ├── NewsCard/        # Individual article cards
-│   ├── SearchForm/      # News search functionality
-│   ├── About/           # About the author section
-│   ├── Footer/          # Site footer
-│   ├── Modals/          # Login/Register modals
-│   └── ...
-├── utils/               # Utility functions
-│   ├── newsApi.js       # NewsAPI integration
-│   ├── mockAuthApi.js   # Mock authentication
-│   └── localStorage.js  # Local storage utilities
-├── images/              # Static images
-└── vendor/              # Third-party resources (fonts)
+├── components/     # React components (Header, Main, SearchForm, NewsCard, About, Footer, modals, etc.)
+├── utils/          # newsApi, mockAuthApi, localStorage helpers
+├── vendor/fonts/   # Roboto, Roboto Slab (local fonts)
+└── index.css       # Design system and global styles
 ```
 
-## 🎯 Stage 1.2 Implementation
+## Portfolio context
 
-This project implements all Stage 1.2 requirements:
+This project was built as a portfolio piece to showcase:
 
-✅ **API Integration**: Real NewsAPI with search functionality  
-✅ **Response Handling**: Loading states, errors, empty results  
-✅ **Backend Simulation**: Mock authentication for reviewers  
-✅ **Deployment**: Live on GitHub Pages  
-
-## 👨‍💻 Created By
-
-**Taliba Ali Latif**  
-TripleTen Practicum Software Engineering Student
+- Modern React patterns (hooks, composition, controlled forms)
+- Responsive, accessible UI with a clear design system
+- Integration with external APIs and local persistence
+- Auth UX (sign in, sign up, protected routes)
 
 ---
 
-*This project is part of the TripleTen Practicum Software Engineering course.*
+**Created by Taliba Ali Latif**  
+TripleTen Software Engineering program · Portfolio project
+
+*News Explorer · Powered by [News API](https://newsapi.org)*

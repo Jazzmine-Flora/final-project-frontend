@@ -18,14 +18,15 @@ function SavedNews({ savedArticles = [], onDeleteArticle, currentUser }) {
     <main className="saved-news">
       <section className="saved-news__header">
         <div className="saved-news__container">
-          <p className="saved-news__subtitle">Saved articles</p>
+          <p className="saved-news__subtitle">Your saved articles</p>
           <h1 className="saved-news__title">
-            {currentUser?.username || "User"}, you have {savedArticles.length}{" "}
-            saved article{savedArticles.length !== 1 ? "s" : ""}
+            {currentUser?.username
+              ? `${currentUser.username}, you have ${savedArticles.length} saved article${savedArticles.length !== 1 ? "s" : ""}`
+              : `You have ${savedArticles.length} saved article${savedArticles.length !== 1 ? "s" : ""}`}
           </h1>
           {savedArticles.length > 0 && (
             <p className="saved-news__keywords">
-              By keywords:{" "}
+              By topic:{" "}
               <span className="saved-news__keywords-list">
                 {getKeywordsText()}
               </span>
@@ -63,7 +64,9 @@ function SavedNews({ savedArticles = [], onDeleteArticle, currentUser }) {
               </div>
               <h3 className="saved-news__empty-title">No saved articles yet</h3>
               <p className="saved-news__empty-text">
-                Save articles from the home page by clicking the bookmark icon when you're signed in. They'll appear here.
+                Search for news on the home page, then click the bookmark icon
+                on any article to save it here. You need to be signed in to
+                save articles.
               </p>
             </div>
           </div>

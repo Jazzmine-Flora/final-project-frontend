@@ -32,19 +32,19 @@ function RegisterModal({ isOpen, onClose, onSubmit, onSwitchToLogin }) {
     if (!formData.email) {
       newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email";
+      newErrors.email = "Please enter a valid email address";
     }
 
     if (!formData.password) {
       newErrors.password = "Password is required";
     } else if (formData.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters";
+      newErrors.password = "Password must be at least 6 characters long";
     }
 
     if (!formData.username) {
-      newErrors.username = "Username is required";
+      newErrors.username = "Display name is required";
     } else if (formData.username.length < 2) {
-      newErrors.username = "Username must be at least 2 characters";
+      newErrors.username = "Display name must be at least 2 characters";
     }
 
     setErrors(newErrors);
@@ -75,7 +75,7 @@ function RegisterModal({ isOpen, onClose, onSubmit, onSwitchToLogin }) {
 
   const alternativeAction = (
     <p className="modal__alternative-text">
-      or{" "}
+      Already have an account?{" "}
       <button
         type="button"
         className="modal__alternative-link"
@@ -102,7 +102,7 @@ function RegisterModal({ isOpen, onClose, onSubmit, onSwitchToLogin }) {
         }`}
         type="email"
         name="email"
-        placeholder="Enter email"
+        placeholder="Email"
         value={formData.email}
         onChange={handleChange}
         required
@@ -115,7 +115,7 @@ function RegisterModal({ isOpen, onClose, onSubmit, onSwitchToLogin }) {
         }`}
         type="password"
         name="password"
-        placeholder="Enter password"
+        placeholder="Password"
         value={formData.password}
         onChange={handleChange}
         required
@@ -128,7 +128,7 @@ function RegisterModal({ isOpen, onClose, onSubmit, onSwitchToLogin }) {
         }`}
         type="text"
         name="username"
-        placeholder="Enter your username"
+        placeholder="Display name"
         value={formData.username}
         onChange={handleChange}
         required

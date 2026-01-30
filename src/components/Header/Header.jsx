@@ -12,7 +12,7 @@ function Header({
   return (
     <header className="header">
       <div className="header__container">
-        <Link to="/" className="header__logo">NewsExplorer</Link>
+        <Link to="/" className="header__logo">News Explorer</Link>
         <Navigation
           isLoggedIn={isLoggedIn}
           currentUser={currentUser}
