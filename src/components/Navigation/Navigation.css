@@ -39,6 +39,7 @@
 .navigation__auth {
   display: flex;
   align-items: center;
+  gap: 12px;
 }
 
 .navigation__button {
@@ -46,30 +47,44 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  background: none;
-  border: 1px solid #1a1b22;
   border-radius: 100px;
-  padding: 17px 20px;
+  padding: 12px 20px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal, 0.3s ease);
+  border: 1px solid transparent;
 }
 
 .navigation__button_type_login {
-  color: #1a1b22;
+  color: var(--color-text-primary, #1a1b22);
+  background: transparent;
+  border-color: var(--color-text-primary, #1a1b22);
 }
 
 .navigation__button_type_login:hover {
-  background-color: #1a1b22;
+  background-color: var(--color-text-primary, #1a1b22);
+  color: #fff;
+}
+
+.navigation__button_type_register {
+  color: #fff;
+  background-color: var(--color-accent, #347eff);
+  border-color: var(--color-accent, #347eff);
+}
+
+.navigation__button_type_register:hover {
+  background-color: var(--color-accent-hover, #2a66cc);
+  border-color: var(--color-accent-hover, #2a66cc);
   color: #fff;
 }
 
 .navigation__button_type_logout {
-  color: #b6bcbf;
-  border-color: #b6bcbf;
+  color: var(--color-text-secondary, #b6bcbf);
+  border-color: var(--color-text-secondary, #b6bcbf);
+  background: transparent;
 }
 
 .navigation__button_type_logout:hover {
-  background-color: #b6bcbf;
+  background-color: var(--color-text-secondary, #b6bcbf);
   color: #fff;
 }
 

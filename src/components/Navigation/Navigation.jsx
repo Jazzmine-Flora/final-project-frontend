@@ -4,7 +4,7 @@ import "./Navigation.css";
 function Navigation({
   isLoggedIn = false,
   onSignInClick,
-  onSignUpClick: _onSignUpClick, // passed from Header for future Sign up button
+  onSignUpClick,
   onSignOut,
 }) {
   const location = useLocation();
@@ -40,18 +40,29 @@ function Navigation({
       <div className="navigation__auth">
         {isLoggedIn ? (
           <button
+            type="button"
             className="navigation__button navigation__button_type_logout"
             onClick={onSignOut}
           >
             Sign out
           </button>
         ) : (
-          <button
-            className="navigation__button navigation__button_type_login"
-            onClick={onSignInClick}
-          >
-            Sign in
-          </button>
+          <>
+            <button
+              type="button"
+              className="navigation__button navigation__button_type_login"
+              onClick={onSignInClick}
+            >
+              Sign in
+            </button>
+            <button
+              type="button"
+              className="navigation__button navigation__button_type_register"
+              onClick={onSignUpClick}
+            >
+              Sign up
+            </button>
+          </>
         )}
       </div>
     </nav>

@@ -1,20 +1,26 @@
 .news-card {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: var(--color-bg-white, #fff);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 16px rgba(26, 27, 34, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-sm, 0 8px 16px rgba(26, 27, 34, 0.06));
+  transition: transform var(--transition-normal, 0.3s ease), box-shadow var(--transition-normal, 0.3s ease);
   height: 576px;
   width: 400px;
   flex-shrink: 0;
   cursor: pointer;
+  border: 1px solid rgba(26, 27, 34, 0.04);
 }
 
 .news-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px rgba(26, 27, 34, 0.12);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg, 0 16px 32px rgba(26, 27, 34, 0.12));
+}
+
+.news-card:focus-visible {
+  outline: 2px solid var(--color-accent, #347eff);
+  outline-offset: 4px;
 }
 
 .news-card__image-container {
@@ -87,23 +93,31 @@
   stroke-width: 2;
 }
 
+.news-card__tooltip-wrap {
+  position: relative;
+  display: inline-block;
+}
+
 .news-card__tooltip {
   position: absolute;
-  top: 70px;
-  right: 24px;
-  background-color: #1a1b22;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background-color: var(--color-bg-dark, #1a1b22);
   color: #fff;
-  padding: 12px 16px;
+  padding: 10px 14px;
   border-radius: 8px;
   font-size: 12px;
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
+  transition: opacity var(--transition-normal, 0.3s ease), visibility var(--transition-normal, 0.3s ease), transform var(--transition-fast, 0.2s ease);
   z-index: 10;
+  pointer-events: none;
+  box-shadow: var(--shadow-md, 0 8px 24px rgba(26, 27, 34, 0.1));
 }
 
-.news-card__bookmark-button_disabled:hover + .news-card__tooltip {
+.news-card__tooltip-wrap:hover .news-card__tooltip {
   opacity: 1;
   visibility: visible;
 }

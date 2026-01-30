@@ -1,33 +1,36 @@
+import { useState } from "react";
 import "./TestInfo.css";
 
 function TestInfo() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="test-info">
-      <button 
+      <button
+        type="button"
         className="test-info__toggle"
-        onClick={(e) => {
-          const content = e.target.nextElementSibling;
-          content.style.display = content.style.display === 'none' ? 'block' : 'none';
-        }}
+        onClick={() => setIsOpen((prev) => !prev)}
+        aria-expanded={isOpen}
+        aria-label="Toggle test account info"
       >
-        ℹ️ Test User Info
+        <span className="test-info__badge">Test</span>
       </button>
-      <div className="test-info__content" style={{ display: 'none' }}>
-        <h3>Test Accounts for Reviewers:</h3>
-        <div className="test-info__user">
-          <strong>User 1:</strong><br />
-          Email: test@example.com<br />
-          Password: password123
+      {isOpen && (
+        <div className="test-info__content">
+          <h3 className="test-info__heading">Test accounts</h3>
+          <div className="test-info__user">
+            <strong>User 1:</strong>
+            <span>test@example.com / password123</span>
+          </div>
+          <div className="test-info__user">
+            <strong>User 2:</strong>
+            <span>demo@example.com / demo123</span>
+          </div>
+          <p className="test-info__note">
+            Or create a new account — data is stored locally.
+          </p>
         </div>
-        <div className="test-info__user">
-          <strong>User 2:</strong><br />
-          Email: demo@example.com<br />
-          Password: demo123
-        </div>
-        <p className="test-info__note">
-          <small>Or create a new account - all data is stored locally for testing.</small>
-        </p>
-      </div>
+      )}
     </div>
   );
 }

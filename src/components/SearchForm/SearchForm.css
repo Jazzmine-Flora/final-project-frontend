@@ -1,17 +1,19 @@
 .search {
   background: linear-gradient(
       to bottom,
-      rgba(26, 27, 34, 0.1) 0%,
-      rgba(26, 27, 34, 0.8) 100%
+      rgba(26, 27, 34, 0.2) 0%,
+      rgba(26, 27, 34, 0.6) 50%,
+      rgba(26, 27, 34, 0.9) 100%
     ),
     url("../../images/georgia-de-lotz--UsJoNxLaNo-unsplash.png");
   background-size: cover;
   background-position: center;
-  min-height: 568px;
+  min-height: 576px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
+  position: relative;
 }
 
 .search__container {
@@ -30,6 +32,7 @@
   max-width: 635px;
   margin-left: auto;
   margin-right: auto;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
 .search__subtitle {
@@ -53,9 +56,14 @@
   background-color: #fff;
   border-radius: 100px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1);
   width: 100%;
   max-width: 608px;
+  transition: box-shadow var(--transition-normal, 0.3s ease);
+}
+
+.search__input-container:focus-within {
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.25), 0 0 0 2px var(--color-accent, #347eff);
 }
 
 .search__input {
@@ -75,25 +83,30 @@
 }
 
 .search__button {
-  background-color: #347eff;
+  background-color: var(--color-accent, #347eff);
   border: none;
   color: #fff;
-  padding: 20px 24px;
+  padding: 20px 28px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color var(--transition-normal, 0.3s ease), transform var(--transition-fast, 0.2s ease);
   min-width: 168px;
 }
 
 .search__button:hover:not(:disabled) {
-  background-color: #2a66cc;
+  background-color: var(--color-accent-hover, #2a66cc);
+  transform: translateY(-1px);
+}
+
+.search__button:active:not(:disabled) {
+  transform: translateY(0);
 }
 
 .search__button:disabled {
-  background-color: #b6bcbf;
+  background-color: var(--color-text-secondary, #b6bcbf);
   cursor: not-allowed;
 }
 

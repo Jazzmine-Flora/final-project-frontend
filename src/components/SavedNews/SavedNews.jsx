@@ -5,17 +5,13 @@ function SavedNews({ savedArticles = [], onDeleteArticle, currentUser }) {
   const getKeywordsText = () => {
     if (savedArticles.length === 0) return "";
 
-    // This would normally come from your backend based on saved articles
-    // For now, we'll just return a placeholder
-    const keywords = ["Technology", "Science", "Health"];
+    const sources = [...new Set(savedArticles.map((a) => a.source?.name).filter(Boolean))];
+    if (sources.length === 0) return "Various topics";
 
-    if (keywords.length <= 2) {
-      return keywords.join(" and ");
-    } else {
-      return `${keywords.slice(0, 2).join(", ")}, and ${
-        keywords.length - 2
-      } others`;
+    if (sources.length <= 2) {
+      return sources.join(" and ");
     }
+    return `${sources.slice(0, 2).join(", ")}, and ${sources.length - 2} others`;
   };
 
   return (
@@ -59,9 +55,15 @@ function SavedNews({ savedArticles = [], onDeleteArticle, currentUser }) {
         <section className="saved-news__empty">
           <div className="saved-news__container">
             <div className="saved-news__empty-content">
+              <div className="saved-news__empty-icon" aria-hidden>
+                <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M17 3H7a2 2 0 00-2 2v16l7-3 7 3V5a2 2 0 00-2-2z" />
+                  <path d="M20 12v60l14-6 14 6V12" strokeDasharray="4 2" />
+                </svg>
+              </div>
               <h3 className="saved-news__empty-title">No saved articles yet</h3>
               <p className="saved-news__empty-text">
-                Start exploring news and save articles you find interesting.
+                Save articles from the home page by clicking the bookmark icon when you're signed in. They'll appear here.
               </p>
             </div>
           </div>
