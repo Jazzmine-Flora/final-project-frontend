@@ -3,7 +3,7 @@ class NewsApi {
   constructor() {
     // Use proxy URL for production, direct API for development
     this._baseUrl =
-      process.env.NODE_ENV === "production"
+      import.meta.env.PROD
         ? "https://nomoreparties.co/news/v2/everything"
         : "https://newsapi.org/v2/everything";
 

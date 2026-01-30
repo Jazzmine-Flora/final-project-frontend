@@ -181,7 +181,7 @@ function App() {
   }
 
   return (
-    <Router basename={process.env.NODE_ENV === 'production' ? '/final-project-frontend' : '/'}>
+    <Router basename={import.meta.env.PROD ? '/final-project-frontend' : '/'}>
       <div className="app">
         <TestInfo />
         <Header

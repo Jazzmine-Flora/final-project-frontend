@@ -4,7 +4,7 @@ import "./Navigation.css";
 function Navigation({
   isLoggedIn = false,
   onSignInClick,
-  onSignUpClick,
+  onSignUpClick: _onSignUpClick, // passed from Header for future Sign up button
   onSignOut,
 }) {
   const location = useLocation();
